@@ -8,22 +8,41 @@ namespace Bankrekening10._3En24._6
 {
     class Bankrekening
     {
-        private int rentePercentage;
-        public List<double> transacties = new List<double>();
+        //private int rentePercentage;
+        private List<double> transacties = new List<double>();
+        private double totaalbedrag = 0.00;
 
         public void Storten(double bedrag)
         {
-            transacties.Add(bedrag);
+            if (bedrag > 0)
+            {
+                transacties.Add(bedrag);
+            }
+            else
+            {
+                Console.WriteLine("error: Verkeerde methode?");
+            }
+
+            totaalbedrag += bedrag;
         }
 
         public void Opnemen(double bedrag)
         {
-            transacties.Add(bedrag); //het bedag moet neg. zijn ...
+            if (bedrag < 0)
+            {
+                transacties.Add(bedrag);
+            }
+            else
+            {
+                Console.WriteLine("error: Verkeerde methode?");
+            }
+
+            totaalbedrag -= bedrag;
         }
 
         public double HuidigSaldo
         {
-            get; set;
+            get { return totaalbedrag; }
         }
     }
 }
