@@ -24,7 +24,7 @@ namespace Bankrekening10._3En24._6
         static void Main(string[] args)
         {
             Console.WriteLine("Doe iets! Hierna ziet u uw tansactie.");
-            Console.WriteLine("schrijf een + voor het bedrag als er bijkomt en een - als er weggaat!");
+            Console.WriteLine("schrijf (evt.) een + voor het bedrag als er bijkomt en ZEKER een - als er weggaat!");
             Console.WriteLine("Schrijf STOP (in drukletters) als u klaar bent!");
             Console.WriteLine("Typ momenteel alleen gehelegetallen in!"); //tijdelijk
 
@@ -39,11 +39,13 @@ namespace Bankrekening10._3En24._6
                     {
                         Console.WriteLine("U stort een extra bedrag ...");
                         rekening.Storten(Convert.ToDouble(cmd));
+                        Console.WriteLine(rekening.HuidigSaldo);
                     }
                     else if (Convert.ToDouble(cmd) < 0.00)
                     {
                         Console.WriteLine("U betaalt iets ..."); //En Wat als u er het geld niet voor heeft?
                         rekening.Opnemen(Convert.ToDouble(cmd));
+                        Console.WriteLine(rekening.HuidigSaldo);
                     }
                     else
                     {
@@ -53,6 +55,7 @@ namespace Bankrekening10._3En24._6
                 else
                 {
                     Console.WriteLine("salu en de kost!");
+                    Console.WriteLine(rekening.HuidigSaldo);
                     break;
                 }
             }

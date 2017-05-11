@@ -37,7 +37,7 @@ namespace Bankrekening10._3En24._6
                 Console.WriteLine("error: Verkeerde methode?");
             }
 
-            totaalbedrag -= bedrag;
+            totaalbedrag += bedrag; //"+=" en niet "-=", want als u bv. -(-1 ) doet, krijgt u weer en pos. get. en word het er bij opgeteld
         }
 
         public double HuidigSaldo
