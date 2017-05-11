@@ -13,29 +13,7 @@ namespace Bankrekening10._3En24._6
 
         private static void ExecuteerMenu()
         {
-            string cmd = Console.ReadLine();
-
-            if (cmd != "STOP")
-            {
-                if (Convert.ToDouble(cmd) > 0.00) //Wrm lukt het niet met het intypen van decimalen?
-                {
-                    Console.WriteLine("U stort een extra bedrag ...");
-                    rekening.Storten(Convert.ToDouble(cmd));
-                }
-                else if (Convert.ToDouble(cmd) < 0)
-                {
-                    Console.WriteLine("U betaalt iets ..."); //En Wat als u er het geld niet voor heeft?
-                    rekening.Opnemen(Convert.ToDouble(cmd));
-                }
-                else
-                {
-                    Console.WriteLine("overbodig");
-                }
-            }
-            else
-            {
-                Console.WriteLine("salu en de kost!");
-            }
+           
         }
 
         private static void LaatRekeningZien()
@@ -50,10 +28,34 @@ namespace Bankrekening10._3En24._6
             Console.WriteLine("Schrijf STOP (in drukletters) als u klaar bent!");
             Console.WriteLine("Typ momenteel alleen gehelegetallen in!"); //tijdelijk
 
-            do
+            while (cmd != "STOP")
             {
-                ExecuteerMenu();
-            } while (cmd != "STOP");
+                //niet meer in methode ExecuteerMenu(): anders werkt de break niet meer
+                string cmd = Console.ReadLine();
+
+                if (cmd != "STOP")
+                {
+                    if (Convert.ToDouble(cmd) > 0.00) //Wrm lukt het niet met het intypen van decimalen?
+                    {
+                        Console.WriteLine("U stort een extra bedrag ...");
+                        rekening.Storten(Convert.ToDouble(cmd));
+                    }
+                    else if (Convert.ToDouble(cmd) < 0.00)
+                    {
+                        Console.WriteLine("U betaalt iets ..."); //En Wat als u er het geld niet voor heeft?
+                        rekening.Opnemen(Convert.ToDouble(cmd));
+                    }
+                    else
+                    {
+                        Console.WriteLine("overbodig");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("salu en de kost!");
+                    break;
+                }
+            }
             
         }
     }
