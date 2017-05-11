@@ -8,16 +8,21 @@ namespace Bankrekening10._3En24._6
 {
     class Bankrekening
     {
-        public void Storten()
+        private List<double> transacties = new List<double>();
+
+        public void Storten(double bedrag)
         {
 
         }
 
-        public void Opnemen()
+        public void Opnemen(double bedrag)
         {
 
         }
 
-        public double HuidigSaldo { get; set; }
+        public double HuidigSaldo
+        {
+            get; set;
+        }
     }
 }
