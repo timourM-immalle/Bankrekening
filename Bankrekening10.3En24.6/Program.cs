@@ -21,7 +21,6 @@ namespace Bankrekening10._3En24._6
         static void Main(string[] args)
         {
             Bankrekening rekening = new Bankrekening();
-            List<double> transacties = new List<double>();
 
             Console.WriteLine("Doe iets! Hierna ziet u uw tansactie.");
             Console.WriteLine("schrijf een + voor het bedrag als er bijkomt en een - als er weggaat!");
@@ -37,9 +36,15 @@ namespace Bankrekening10._3En24._6
 
             if (cmd != "STOP")
             {
-                if (Convert.ToDouble(cmd) != 0)
+                if (Convert.ToDouble(cmd) > 0)
                 {
-                    transacties.Add(Convert.ToDouble(cmd));
+                    Console.WriteLine("U stort een extra bedrag ...");
+                    rekening.Storten(Convert.ToDouble(cmd));
+                }
+                else if (Convert.ToDouble(cmd) < 0)
+                {
+                    Console.WriteLine("U betaalt iets ..."); //En Wat als u er het geld niet voor heeft?
+                    rekening.Opnemen(Convert.ToDouble(cmd));
                 }
             }
         }
