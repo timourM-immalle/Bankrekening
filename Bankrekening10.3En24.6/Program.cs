@@ -8,7 +8,7 @@ namespace Bankrekening10._3En24._6
 {
     class Program
     {
-        private static string cmd;
+        private static string cmd; //Console: bij dergelijke dingen altijd static (toch zeker in Program.cs)
         private static Bankrekening rekening = new Bankrekening();
 
         private static void ExecuteerMenu()
@@ -23,10 +23,12 @@ namespace Bankrekening10._3En24._6
 
         static void Main(string[] args)
         {
+            string[] transacties;
+
             Console.WriteLine("Doe iets! Hierna ziet u uw tansactie.");
-            Console.WriteLine("schrijf (evt.) een + voor het bedrag als er bijkomt en ZEKER een - als er weggaat!");
-            Console.WriteLine("Schrijf STOP (in drukletters) als u klaar bent!");
-            Console.WriteLine("Typ momenteel alleen gehelegetallen in!"); //tijdelijk
+            Console.WriteLine("- Schrijf (evt.) een + voor het bedrag als er bijkomt en ZEKER een - als er weggaat!");
+            Console.WriteLine("- Schrijf STOP (in drukletters) als u klaar bent!");
+            Console.WriteLine("- Typ momenteel alleen gehelegetallen in!"); //tijdelijk
 
             while (cmd != "STOP")
             {
@@ -55,6 +57,8 @@ namespace Bankrekening10._3En24._6
                 else
                 {
                     Console.WriteLine("salu en de kost!");
+                    //op de console verschijnt de volledige transactielijst, met alle transacties onder elkaar en onderaan het totaalbedrag
+                    //Console.WriteLine(rekening.ToonTransactielijst());
                     Console.WriteLine(rekening.HuidigSaldo);
                     break;
                 }
